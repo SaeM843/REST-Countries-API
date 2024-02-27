@@ -1,1 +1,3 @@
-@use "./variables";
+@use "./config/variables";
+@use "./config/reset";
+@use "./config/mediaQuery";
