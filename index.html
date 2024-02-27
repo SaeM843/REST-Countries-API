@@ -26,22 +26,78 @@
     </header>
 
     <main class="search">
-      <form>
-        <input
-          class="search__input"
-          type="search"
-          placeholder="Search for a country..."
-        />
-      </form>
+      <div class="search__options">
+        <form>
+          <input
+            class="search__input"
+            type="search"
+            placeholder="Search for a country..."
+          />
+        </form>
 
-      <select class="search__regions" name="regions">
-        <option value="placeholder" disabled selected>FIlter by Region</option>
-        <option value="africa">Africa</option>
-        <option value="america">America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
-      </select>
+        <select class="search__regions" name="regions">
+          <option value="placeholder" disabled selected>
+            FIlter by Region
+          </option>
+          <option value="africa">Africa</option>
+          <option value="america">America</option>
+          <option value="asia">Asia</option>
+          <option value="europe">Europe</option>
+          <option value="oceania">Oceania</option>
+        </select>
+      </div>
+
+      <div class="search__results--cards">
+        <div class="flag-img"></div>
+        <div class="country-info">
+          <span class="country-name"></span>
+          <ul class="country-properies">
+            <li class="property-box">
+              Population:<span class="property"></span>
+            </li>
+            <li class="property-box">Region: <span class="property"></span></li>
+            <li class="property-box">
+              Capital: <span class="property"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
+
+    <section class="details">
+      <div class="details__box--left">
+        <button class="details__btn--back">
+          <ion-icon name="arrow-back-outline"></ion-icon>Back
+        </button>
+        <div class="details__img--flag"></div>
+      </div>
+
+      <div class="details__box--right">
+        <span class="details-country-name"></span>
+        <div class="details__properties">
+          <ul class="each-details">
+            <li>Native Name:<span class="detail-info"></span></li>
+            <li>Population: <span class="detail-info"></span></li>
+            <li>Region: <span class="detail-info"></span></li>
+            <li>Sub Region:<span class="detail-info"></span></li>
+            <li>Capital: <span class="detail-info"></span></li>
+          </ul>
+
+          <ul class="each-details">
+            <li>Top level Domain:<span class="detail-info"></span></li>
+            <li>Currencies:<span class="detail-info"></span></li>
+            <li>Language:<span class="detail-info"></span></li>
+          </ul>
+        </div>
+
+        <div class="details__border">
+          <span class="neighbour-name">Border Countries: </span>
+          <ul>
+            <li class="neighbour">Test</li>
+            <li class="neighbour">Test</li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
