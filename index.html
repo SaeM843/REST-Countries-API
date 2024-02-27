@@ -25,6 +25,23 @@
       </button>
     </header>
 
-    <main></main>
+    <main class="search">
+      <form>
+        <input
+          class="search__input"
+          type="search"
+          placeholder="Search for a country..."
+        />
+      </form>
+
+      <select class="search__regions" name="regions">
+        <option value="placeholder" disabled selected>FIlter by Region</option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
+      </select>
+    </main>
   </body>
 </html>
