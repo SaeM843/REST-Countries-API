@@ -1,4 +1,5 @@
 @use "./variables" as var;
+@use "./mediaQuery" as *;
 
 .details {
   display: flex;
@@ -6,8 +7,18 @@
   padding: 3rem 6.5rem;
   font-size: 1rem;
 
+  @include responsive() {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
   &__box--left {
     width: 50%;
+
+    @include responsive() {
+      width: 100%;
+    }
 
     .btn--back {
       all: unset;
@@ -23,9 +34,19 @@
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       font-size: 20px;
       gap: 0.8rem;
+
+      @include responsive() {
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+      }
     }
     .details--flag {
       width: 85%;
+
+      @include responsive() {
+        width: 100%;
+      }
     }
   }
 
@@ -35,6 +56,11 @@
     display: flex;
     flex-direction: column;
     margin-top: 8rem;
+
+    @include responsive() {
+      width: 100%;
+      margin-top: 2rem;
+    }
 
     .details-country-name {
       font-size: 1.5rem;
@@ -47,6 +73,11 @@
       display: flex;
       justify-content: space-between;
 
+      @include responsive() {
+        flex-direction: column;
+        margin-bottom: 1rem;
+      }
+
       .each-details {
         width: 50%;
         // font-size: 1rem;
@@ -54,6 +85,10 @@
         li {
           padding-top: 10px;
           font-weight: 600;
+
+          @include responsive() {
+            font-size: 12px;
+          }
 
           .detail-info {
             font-weight: 300;
@@ -67,12 +102,25 @@
     align-items: center;
     font-weight: 600;
 
+    @include responsive() {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .neighbour-name {
       margin-right: 20px;
+
+      @include responsive() {
+        font-size: 14px;
+      }
     }
 
     ul {
       display: flex;
+
+      @include responsive {
+        margin-top: 0.1rem;
+      }
 
       .neighbour {
         font-weight: 300;
@@ -84,6 +132,13 @@
         background-color: var.$dark-mode-elements;
         margin: 0.5rem;
         padding: 0.2rem;
+
+        @include responsive() {
+          margin: 0 0.5rem 0 0;
+          font-size: 14px;
+          min-width: 70px;
+          min-height: 20px;
+        }
       }
     }
   }
