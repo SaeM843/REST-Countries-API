@@ -1,4 +1,5 @@
 @use "./variables" as var;
+@use "./mediaQuery" as *;
 
 .search {
   display: none;
