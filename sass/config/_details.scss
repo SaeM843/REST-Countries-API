@@ -1,0 +1,90 @@
+@use "./variables" as var;
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 6.5rem;
+  font-size: 1rem;
+
+  &__box--left {
+    width: 50%;
+
+    .btn--back {
+      all: unset;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 105px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: var.$dark-mode-elements;
+      margin-bottom: 3rem;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      font-size: 20px;
+      gap: 0.8rem;
+    }
+    .details--flag {
+      width: 85%;
+    }
+  }
+
+  &__box--right {
+    width: 50%;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+
+    .details-country-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      padding-bottom: 20px;
+    }
+
+    .properties {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .each-details {
+        width: 50%;
+        // font-size: 1rem;
+
+        li {
+          padding-top: 10px;
+          font-weight: 600;
+
+          .detail-info {
+            font-weight: 300;
+          }
+        }
+      }
+    }
+  }
+  &__border {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+
+    .neighbour-name {
+      margin-right: 20px;
+    }
+
+    ul {
+      display: flex;
+
+      .neighbour {
+        font-weight: 300;
+        min-width: 90px;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        background-color: var.$dark-mode-elements;
+        margin: 0.5rem;
+        padding: 0.2rem;
+      }
+    }
+  }
+}

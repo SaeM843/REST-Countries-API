@@ -68,6 +68,7 @@ body {
 }
 
 .search {
+  display: none;
   min-height: 100vh;
   width: 90%;
   margin: 0 auto;
@@ -133,6 +134,7 @@ body {
 }
 .search__results--cards .results--card .flag-img {
   border-radius: 5px 5px 0 0;
+  height: 50%;
 }
 .search__results--cards .results--card .country-info {
   width: 100%;
@@ -155,6 +157,83 @@ body {
 .search__results--cards .results--card .country-info .property-box .property {
   font-size: 14px;
   font-weight: 300;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 6.5rem;
+  font-size: 1rem;
+}
+.details__box--left {
+  width: 50%;
+}
+.details__box--left .btn--back {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 105px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: hsl(209, 23%, 22%);
+  margin-bottom: 3rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  gap: 0.8rem;
+}
+.details__box--left .details--flag {
+  width: 85%;
+}
+.details__box--right {
+  width: 50%;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+}
+.details__box--right .details-country-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding-bottom: 20px;
+}
+.details__box--right .properties {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.details__box--right .properties .each-details {
+  width: 50%;
+}
+.details__box--right .properties .each-details li {
+  padding-top: 10px;
+  font-weight: 600;
+}
+.details__box--right .properties .each-details li .detail-info {
+  font-weight: 300;
+}
+.details__border {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.details__border .neighbour-name {
+  margin-right: 20px;
+}
+.details__border ul {
+  display: flex;
+}
+.details__border ul .neighbour {
+  font-weight: 300;
+  min-width: 90px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: hsl(209, 23%, 22%);
+  margin: 0.5rem;
+  padding: 0.2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

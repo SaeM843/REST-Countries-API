@@ -1,6 +1,7 @@
 @use "./variables" as var;
 
 .search {
+  display: none;
   min-height: 100vh;
   width: 90%;
   margin: 0 auto;
@@ -71,6 +72,7 @@
 
       .flag-img {
         border-radius: 5px 5px 0 0;
+        height: 50%;
       }
 
       .country-info {
