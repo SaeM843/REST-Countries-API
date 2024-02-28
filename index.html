@@ -30,6 +30,7 @@
     <main class="search">
       <div class="search__options">
         <form>
+          <ion-icon name="search-outline"></ion-icon>
           <input
             class="search__input"
             type="search"
@@ -41,27 +42,32 @@
           <option value="placeholder" disabled selected>
             FIlter by Region
           </option>
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
+          <option class="option-box" value="africa">Africa</option>
+          <option class="option-box" value="america">America</option>
+          <option class="option-box" value="asia">Asia</option>
+          <option class="option-box" value="europe">Europe</option>
+          <option class="option-box" value="oceania">Oceania</option>
         </select>
       </div>
 
       <div class="search__results--cards">
-        <div class="flag-img"></div>
-        <div class="country-info">
-          <span class="country-name"></span>
-          <ul class="country-properies">
-            <li class="property-box">
-              Population:<span class="property"></span>
-            </li>
-            <li class="property-box">Region: <span class="property"></span></li>
-            <li class="property-box">
-              Capital: <span class="property"></span>
-            </li>
-          </ul>
+        <!-- <div class="flag-img"></div> -->
+        <div class="results--card">
+          <img class="flag-img" src="https://flagcdn.com/w320/jp.png" />
+          <div class="country-info">
+            <span class="country-name">Japan</span>
+            <ul class="country-properies">
+              <li class="property-box">
+                Population: <span class="property">Test</span>
+              </li>
+              <li class="property-box">
+                Region: <span class="property">Test</span>
+              </li>
+              <li class="property-box">
+                Capital: <span class="property">Test</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>
