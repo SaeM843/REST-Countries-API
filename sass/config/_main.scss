@@ -2,7 +2,7 @@
 @use "./mediaQuery" as *;
 
 .search {
-  display: none;
+  //   display: none;
   min-height: 100vh;
   width: 90%;
   margin: 0 auto;
@@ -12,10 +12,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    // margin: 0 3rem;
+
+    @include responsive() {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
     form {
       display: block;
       position: relative;
+
+      @include responsive() {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
 
       ion-icon {
         position: absolute;
@@ -34,6 +45,10 @@
         border-radius: 5px;
         font-size: 16px;
 
+        @include responsive() {
+          width: 100%;
+        }
+
         &::placeholder {
           color: var.$dark-text-Light-el;
         }
@@ -49,6 +64,10 @@
     color: var.$dark-text-Light-el;
     border-radius: 5px;
     padding: 0 1rem;
+
+    @include responsive() {
+      //   align-items: flex-start;
+    }
 
     .option-box {
       height: 50px;

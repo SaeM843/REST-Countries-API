@@ -38,8 +38,6 @@ ul {
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   background-color: hsl(207, 26%, 17%);
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
@@ -86,7 +84,6 @@ body {
 }
 
 .search {
-  display: none;
   min-height: 100vh;
   width: 90%;
   margin: 0 auto;
@@ -97,9 +94,21 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 480px) {
+  .search__options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .search__options form {
   display: block;
   position: relative;
+}
+@media screen and (max-width: 480px) {
+  .search__options form {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
 .search__options form ion-icon {
   position: absolute;
@@ -117,6 +126,11 @@ body {
   background-color: hsl(209, 23%, 22%);
   border-radius: 5px;
   font-size: 16px;
+}
+@media screen and (max-width: 480px) {
+  .search__options form input {
+    width: 100%;
+  }
 }
 .search__options form input::placeholder {
   color: hsl(0, 0%, 100%);
@@ -178,14 +192,14 @@ body {
 }
 
 .details {
-  display: flex;
+  display: none;
   justify-content: space-between;
   padding: 3rem 6.5rem;
   font-size: 1rem;
 }
 @media screen and (max-width: 480px) {
   .details {
-    display: flex;
+    display: none;
     flex-direction: column;
     padding: 2rem;
   }

@@ -2,13 +2,15 @@
 @use "./mediaQuery" as *;
 
 .details {
-  display: flex;
+  display: none;
+  //   display: flex;
   justify-content: space-between;
   padding: 3rem 6.5rem;
   font-size: 1rem;
 
   @include responsive() {
-    display: flex;
+    // display: flex;
+    display: none;
     flex-direction: column;
     padding: 2rem;
   }
