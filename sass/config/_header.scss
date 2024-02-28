@@ -1,0 +1,27 @@
+@use "./variables" as var;
+
+.header {
+  background-color: var.$dark-mode-elements;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 4rem;
+
+  &__heading {
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  &__mode-switcher {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+
+    ion-icon {
+      padding: 0 0.5rem;
+    }
+  }
+}

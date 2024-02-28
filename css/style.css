@@ -37,6 +37,30 @@ body {
   background-color: hsl(207, 26%, 17%);
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
+  color: hsl(0, 0%, 100%);
+}
+
+.header {
+  background-color: hsl(209, 23%, 22%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 4rem;
+}
+.header__heading {
+  font-size: 24px;
+  font-weight: 800;
+}
+.header__mode-switcher {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.header__mode-switcher ion-icon {
+  padding: 0 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
