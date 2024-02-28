@@ -33,4 +33,10 @@ li {
   list-style-type: none;
 }
 
+body {
+  background-color: hsl(207, 26%, 17%);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+}
+
 /*# sourceMappingURL=style.css.map */
