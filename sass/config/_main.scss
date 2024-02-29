@@ -7,6 +7,11 @@
   width: 90%;
   margin: 0 auto;
   padding: 3rem 0;
+  color: var.$dark-text-Light-el;
+
+  &.light {
+    color: var.$light-mode-text;
+  }
 
   &__options {
     display: flex;
@@ -45,6 +50,10 @@
         border-radius: 5px;
         font-size: 16px;
 
+        &.light {
+          background-color: var.$light-mode-background;
+        }
+
         @include responsive() {
           width: 100%;
         }
@@ -65,6 +74,11 @@
     border-radius: 5px;
     padding: 0 1rem;
 
+    &.light {
+      background-color: var.$light-mode-background;
+      color: var.$light-mode-text;
+    }
+
     @include responsive() {
       //   align-items: flex-start;
     }
@@ -80,13 +94,20 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    background-color: var.$dark-mode-elements;
+    color: var.$dark-text-Light-el;
+
+    &.light {
+      background-color: var.$light-mode-background;
+      color: var.$light-mode-text;
+    }
 
     .results--card {
       width: 265px;
       height: 360px;
       border-radius: 5px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      background-color: var.$dark-mode-elements;
+      // background-color: var.$dark-mode-elements;
       color: var.$dark-text-Light-el;
       cursor: pointer;
 
@@ -103,6 +124,10 @@
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
+
+        &.light {
+          color: var.$dark-text-Light-el;
+        }
 
         .country-name {
           font-size: 18px;

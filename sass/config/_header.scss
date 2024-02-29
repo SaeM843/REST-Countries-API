@@ -10,6 +10,10 @@
   padding: 1rem 4rem;
   width: 100%;
 
+  &.light {
+    background-color: var.$dark-text-Light-el;
+  }
+
   @include responsive() {
     padding: 1rem;
   }

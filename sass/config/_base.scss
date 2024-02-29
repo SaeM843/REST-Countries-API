@@ -7,4 +7,9 @@ body {
   font-family: var.$main-font;
   font-size: 14px;
   color: var.$dark-text-Light-el;
+
+  &.light {
+    background-color: var.$light-mode-background;
+    color: var.$light-mode-text;
+  }
 }
