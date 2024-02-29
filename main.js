@@ -11,6 +11,11 @@ const LoadAPI = function () {
 
 LoadAPI();
 
+//Display all countries
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function displayCountries(data) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("results--card");
@@ -20,14 +25,16 @@ function displayCountries(data) {
       <span class="country-name">${data.name}</span>
       <ul class="country-properies">
         <li class="property-box">
-          Population: <span class="property">${data.population}</span>
+          Population: <span class="property">${numberWithCommas(
+            data.population
+          )}</span>
         </li>
         <li class="property-box">
           Region: <span class="property">${data.region}</span>
         </li>
         <li class="property-box">
           Capital: <span class="property">${data.capital}</span>
-        /li>
+        </li>
       </ul>
   `;
   countriesCards.appendChild(newDiv);
