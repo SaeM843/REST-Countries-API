@@ -8,13 +8,14 @@ const LoadAPI = function () {
     .then((res) => res.json())
     .then((data) => data.forEach((data) => displayCountries(data)));
 };
-
 LoadAPI();
 
-//Display all countries
+//  Style numbers
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+//Display all countries
 
 function displayCountries(data) {
   const newDiv = document.createElement("div");
