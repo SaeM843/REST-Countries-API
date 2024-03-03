@@ -1,42 +1,16 @@
 const url = " https://restcountries.com/v3.1/all";
 
-const countriesCards = document.querySelector(".search__results--cards");
-const countryCard = countriesCards.children;
-const cards = document.querySelector(".results--card");
-const select = document.querySelector("select");
-const dropdownOptions = document.querySelectorAll(".option-box");
-
-// const regionOnCard = document.querySelector(".region");
-
+// const countryCard = countriesCards.children;
+// const cards = document.querySelector(".results--card");
+const select = document.querySelector(".search__regions");
+// const dropdownOptions = document.querySelectorAll(".option-box");
 const searchInput = document.querySelector("input");
 
-const btn = document.querySelector(".header__mode-switcher");
-const header = document.querySelector(".header");
-const searchSection = document.querySelector(".search");
+// const regionOnCard = document.querySelector(".region");
 
 let allCountriesData;
 
 //Fetch the data
-// const LoadAPI = function () {
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((data) =>
-//       data.forEach((data) => {
-//         displayCountries(data);
-//         allCountriesData = data;
-//       })
-//     );
-// };
-
-// const LoadAPI = function () {
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       displayCountries(data);
-//       allCountriesData = data;
-//     });
-// };
-
 const LoadAPI = function () {
   fetch(url)
     .then((res) => res.json())
@@ -53,34 +27,7 @@ function numberWithCommas(x) {
 }
 
 //Display all countries
-
-// function displayCountries(data) {
-//   data.forEach((data) => {
-//     const newDiv = document.createElement("div");
-//     newDiv.classList.add("results--card");
-//     newDiv.innerHTML = `
-//       <div class="flag-img">
-//         <img src="${data.flags.svg}" />
-//       </div>
-//       <div class="country-info light">
-//       <span class="country-name">${data.name.common}</span>
-//       <ul class="country-properies">
-//         <li class="property-box">
-//           Population: <span class="property">${numberWithCommas(
-//             data.population
-//           )}</span>
-//         </li>
-//         <li class="region property-box">
-//           Region: <span class="property info-region">${data.region}</span>
-//         </li>
-//         <li class="property-box">
-//           Capital: <span class="property">${data.capital}</span>
-//         </li>
-//       </ul>
-//   `;
-//     countriesCards.appendChild(newDiv);
-//   });
-// }
+const countriesCards = document.querySelector(".search__results--cards");
 
 function displayCountries(data) {
   const newDiv = document.createElement("div");
@@ -148,6 +95,9 @@ searchInput.addEventListener("input", (e) => {
 });
 
 //Theme Switch
+const searchSection = document.querySelector(".search");
+const header = document.querySelector(".header");
+const btn = document.querySelector(".header__mode-switcher");
 
 btn.addEventListener("click", () => {
   document.body.classList.toggle("light");
@@ -161,29 +111,26 @@ btn.addEventListener("click", () => {
 const region = document.getElementsByClassName("info-region");
 const regionOnCard = document.querySelector(".region");
 // dropdownOptions.forEach((option) => option.addEventListener("change"));
-dropdownOptions.forEach((option) =>
-  option.addEventListener("change", (e) => {
-    console.log("hi");
-    Array.from(region).forEach((reg) => {
-      if (reg.innerText.includes(option.innerText)) {
-        reg.parentElement.parentElement.style.display = "block";
-      } else {
-        reg.parentElement.parentElement.style.display = "none";
-      }
-    });
-  })
-);
-
-// function changeByRegion(e) {
-//   e.preventDefult();
-//   console.log("hi");
-// Array.from(region).forEach((reg) => {
-//   if (
-//     reg.innerText.toLowerCaese().includes(region.innerHTML.toLowerCaese())
-//   ) {
-//     reg.parentElement.parentElement.style.display = "block";
-//   } else {
-//     reg.parentElement.parentElement.style.display = "none";
-//   }
-// });
-// }
+// dropdownOptions.forEach((option) =>
+//   option.addEventListener("change", (e) => {
+//     console.log("hi");
+//     Array.from(region).forEach((reg) => {
+//       if (reg.innerText.includes(option.innerText)) {
+//         reg.parentElement.parentElement.style.display = "block";
+//       } else {
+//         reg.parentElement.parentElement.style.display = "none";
+//       }
+//     });
+//   })
+// );
+select.addEventListener("change", () => {
+  const op = select.options[select.selectedIndex];
+  //console.log(op.value);
+  if (region.innerText === op.value) {
+    region.parentElement.parentElement.parentElement.parentElement.style.display =
+      "block";
+  } else {
+    region.parentElement.parentElement.parentElement.parentElement.style.display =
+      "none";
+  }
+});
