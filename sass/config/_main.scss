@@ -94,26 +94,27 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var.$dark-mode-elements;
     color: var.$dark-text-Light-el;
-
-    &.light {
-      background-color: var.$light-mode-background;
-      color: var.$light-mode-text;
-    }
 
     .results--card {
       width: 265px;
       height: 360px;
       border-radius: 5px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      // background-color: var.$dark-mode-elements;
+      background-color: var.$dark-mode-elements;
       color: var.$dark-text-Light-el;
       cursor: pointer;
+      margin: 1rem;
+
+      &.light {
+        background-color: var.$light-mode-background;
+        color: var.$light-mode-text;
+      }
 
       .flag-img {
         border-radius: 5px 5px 0 0;
         height: 50%;
+        width: 100%;
       }
 
       .country-info {

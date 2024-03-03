@@ -2,10 +2,11 @@ const url = " https://restcountries.com/v3.1/all";
 
 const countriesCards = document.querySelector(".search__results--cards");
 const countryCard = countriesCards.children;
-// const card = document.querySelector(".results--card");
+const cards = document.querySelector(".results--card");
 const select = document.querySelector("select");
 const dropdownOptions = document.querySelectorAll(".option-box");
-const region = document.querySelectorAll(".info-region");
+
+// const regionOnCard = document.querySelector(".region");
 
 const searchInput = document.querySelector("input");
 
@@ -27,12 +28,20 @@ let allCountriesData;
 //     );
 // };
 
+// const LoadAPI = function () {
+//   fetch(url)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       displayCountries(data);
+//       allCountriesData = data;
+//     });
+// };
+
 const LoadAPI = function () {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      displayCountries(data);
-      allCountriesData = data;
+      data.forEach((data) => displayCountries(data));
     });
 };
 
@@ -45,13 +54,42 @@ function numberWithCommas(x) {
 
 //Display all countries
 
+// function displayCountries(data) {
+//   data.forEach((data) => {
+//     const newDiv = document.createElement("div");
+//     newDiv.classList.add("results--card");
+//     newDiv.innerHTML = `
+//       <div class="flag-img">
+//         <img src="${data.flags.svg}" />
+//       </div>
+//       <div class="country-info light">
+//       <span class="country-name">${data.name.common}</span>
+//       <ul class="country-properies">
+//         <li class="property-box">
+//           Population: <span class="property">${numberWithCommas(
+//             data.population
+//           )}</span>
+//         </li>
+//         <li class="region property-box">
+//           Region: <span class="property info-region">${data.region}</span>
+//         </li>
+//         <li class="property-box">
+//           Capital: <span class="property">${data.capital}</span>
+//         </li>
+//       </ul>
+//   `;
+//     countriesCards.appendChild(newDiv);
+//   });
+// }
+
 function displayCountries(data) {
-  data.forEach((data) => {
-    const newDiv = document.createElement("div");
-    newDiv.classList.add("results--card");
-    newDiv.innerHTML = `
-    <img class="flag-img" src="${data.flags.svg}" />
-      <div class="country-info light">
+  const newDiv = document.createElement("div");
+  newDiv.classList.add("results--card");
+  newDiv.innerHTML = `
+      <div class="flag-img">
+        <img src="${data.flags.svg}" />
+      </div>
+      <div class="country-info">
       <span class="country-name">${data.name.common}</span>
       <ul class="country-properies">
         <li class="property-box">
@@ -59,7 +97,7 @@ function displayCountries(data) {
             data.population
           )}</span>
         </li>
-        <li class="property-box">
+        <li class="region property-box">
           Region: <span class="property info-region">${data.region}</span>
         </li>
         <li class="property-box">
@@ -67,27 +105,47 @@ function displayCountries(data) {
         </li>
       </ul>
   `;
-    countriesCards.appendChild(newDiv);
-  });
+  countriesCards.appendChild(newDiv);
 }
 
 //Display coutries by region
-const byRegion = function () {
-  fetch(`https://restcountries.com/v3.1/region/${select.value}`)
-    .then((res) => res.json())
-    .then((data) => displayCountries(data));
-};
+// const byRegion = function () {
+//   fetch(`https://restcountries.com/v3.1/region/${select.value}`)
+//     .then((res) => res.json())
+//     .then((data) => displayCountries(data));
+// };
 
-select.addEventListener("change", byRegion);
+// function byRegion() {
+//   const selectedRigion =
+//     select.options[select.selectedIndex].text.toLowerCase();
+//   console.log(selectedRigion);
+
+//   // const regions = document.getElementsByTagName("li");
+
+//   cards.forEach((card) => {
+//     if (regionOnCard.innerText.toLowerCase().indexOf(selectedRigion) != -1) {
+//       regionOnCard.parentElement.parentElement.style.display = "block";
+//     } else {
+//       regionOnCard.parentElement.parentElement.style.display = "none";
+//     }
+//   });
+// }
+
+//select.addEventListener("change", byRegion);
 
 // Country by serach input
-
-// searchInput.addEventListener("input", (e) => {
-//   const filteredCountries = allCountriesData.filter((country) =>
-//     country.name.common.toLowerCase().includes(e.target.value.toLowerCase())
-//   );
-//   displayCountries(filteredCountries);
-// });
+const countryName = document.getElementsByClassName("country-name");
+searchInput.addEventListener("input", (e) => {
+  Array.from(countryName).forEach((country) => {
+    if (
+      country.innerText.toLowerCase().includes(searchInput.value.toLowerCase())
+    ) {
+      country.parentElement.parentElement.style.display = "block";
+    } else {
+      country.parentElement.parentElement.style.display = "none";
+    }
+  });
+});
 
 //Theme Switch
 
@@ -96,6 +154,36 @@ btn.addEventListener("click", () => {
   header.classList.toggle("light");
   searchInput.classList.toggle("light");
   select.classList.toggle("light");
-  countriesCards.classList.toggle("light");
+  cards.classList.toggle("light");
   searchSection.classList.toggle("light");
 });
+
+const region = document.getElementsByClassName("info-region");
+const regionOnCard = document.querySelector(".region");
+// dropdownOptions.forEach((option) => option.addEventListener("change"));
+dropdownOptions.forEach((option) =>
+  option.addEventListener("change", (e) => {
+    console.log("hi");
+    Array.from(region).forEach((reg) => {
+      if (reg.innerText.includes(option.innerText)) {
+        reg.parentElement.parentElement.style.display = "block";
+      } else {
+        reg.parentElement.parentElement.style.display = "none";
+      }
+    });
+  })
+);
+
+// function changeByRegion(e) {
+//   e.preventDefult();
+//   console.log("hi");
+// Array.from(region).forEach((reg) => {
+//   if (
+//     reg.innerText.toLowerCaese().includes(region.innerHTML.toLowerCaese())
+//   ) {
+//     reg.parentElement.parentElement.style.display = "block";
+//   } else {
+//     reg.parentElement.parentElement.style.display = "none";
+//   }
+// });
+// }

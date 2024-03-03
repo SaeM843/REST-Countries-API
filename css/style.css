@@ -172,24 +172,26 @@ body.light {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  background-color: hsl(209, 23%, 22%);
   color: hsl(0, 0%, 100%);
-}
-.search__results--cards.light {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(200, 15%, 8%);
 }
 .search__results--cards .results--card {
   width: 265px;
   height: 360px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  background-color: hsl(209, 23%, 22%);
   color: hsl(0, 0%, 100%);
   cursor: pointer;
+  margin: 1rem;
+}
+.search__results--cards .results--card.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
 }
 .search__results--cards .results--card .flag-img {
   border-radius: 5px 5px 0 0;
   height: 50%;
+  width: 100%;
 }
 .search__results--cards .results--card .country-info {
   width: 100%;
