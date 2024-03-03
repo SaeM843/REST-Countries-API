@@ -123,14 +123,20 @@ const regionOnCard = document.querySelector(".region");
 //     });
 //   })
 // );
-select.addEventListener("change", () => {
-  const op = select.options[select.selectedIndex];
-  //console.log(op.value);
-  if (region.innerText === op.value) {
-    region.parentElement.parentElement.parentElement.parentElement.style.display =
-      "block";
-  } else {
-    region.parentElement.parentElement.parentElement.parentElement.style.display =
-      "none";
-  }
+// select.addEventListener("change", () => {
+//   const op = select.options[select.selectedIndex];
+//   //console.log(op.value);
+//   if (region.innerText === op.value) {
+//     region.parentElement.parentElement.parentElement.parentElement.style.display =
+//       "block";
+//   } else {
+//     region.parentElement.parentElement.parentElement.parentElement.style.display =
+//       "none";
+//   }
+// });
+select.addEventListener("change", (e) => {
+  console.log(select.value);
+  fetch(`https://restcountries.com/v3.1/region/${select.value}`)
+    .then((res) => res.json())
+    .then(displayCountries);
 });
