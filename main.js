@@ -16,7 +16,10 @@ let allCountriesData;
 const LoadAPI = function () {
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayCountries(data));
+    .then((data) => {
+      displayCountries(data);
+      allCountriesData = data;
+    });
 };
 
 LoadAPI();
@@ -44,30 +47,13 @@ function displayCountries(data) {
     `;
     countriesCards.append(countryCard);
   });
-  // const newDiv = document.createElement("div");
-  // newDiv.classList.add("results--card");
-  // newDiv.innerHTML = `
-  //     <div class="flag-img">
-  //       <img src="${data.flags.svg}" />
-  //     </div>
-  //     <div class="country-info">
-  //     <span class="country-name">${data.name.common}</span>
-  //     <ul class="country-properies">
-  //       <li class="property-box">
-  //         Population: <span class="property">${numberWithCommas(
-  //           data.population
-  //         )}</span>
-  //       </li>
-  //       <li class="region property-box">
-  //         Region: <span class="property info-region">${data.region}</span>
-  //       </li>
-  //       <li class="property-box">
-  //         Capital: <span class="property">${data.capital}</span>
-  //       </li>
-  //     </ul>
-  // `;
-  // countriesCards.appendChild(newDiv);
 }
+
+select.addEventListener("change", (e) => {
+  fetch(`https://restcountries.com/v3.1/${select.value}`)
+    .then((res) => res.json())
+    .then((data) => displayCountries(data));
+});
 
 //Display coutries by region
 // const byRegion = function () {
@@ -95,18 +81,24 @@ function displayCountries(data) {
 //select.addEventListener("change", byRegion);
 
 // Country by serach input
-const countryName = document.getElementsByClassName("country-name");
 searchInput.addEventListener("input", (e) => {
-  Array.from(countryName).forEach((country) => {
-    if (
-      country.innerText.toLowerCase().includes(searchInput.value.toLowerCase())
-    ) {
-      country.parentElement.parentElement.style.display = "block";
-    } else {
-      country.parentElement.parentElement.style.display = "none";
-    }
-  });
+  const filteredCountries = allCountriesData.filter((country) =>
+    country.name.common.toLowerCase().includes(e.target.value.toLowerCase())
+  );
+  displayCountries(filteredCountries);
 });
+// const countryName = document.getElementsByClassName("country-name");
+// searchInput.addEventListener("input", (e) => {
+//   Array.from(countryName).forEach((country) => {
+//     if (
+//       country.innerText.toLowerCase().includes(searchInput.value.toLowerCase())
+//     ) {
+//       country.parentElement.parentElement.style.display = "block";
+//     } else {
+//       country.parentElement.parentElement.style.display = "none";
+//     }
+//   });
+// });
 
 //Theme Switch
 const searchSection = document.querySelector(".search");
