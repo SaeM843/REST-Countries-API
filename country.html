@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- <script src="./main.js" defer></script> -->
+
+    <title>Rest Countries API with Color Theme Switcher</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="header__heading">Where in the world?</h1>
+      <button class="header__mode-switcher">
+        <ion-icon name="moon-outline"></ion-icon>Dark Mode
+      </button>
+    </header>
+
+    <main>
+      <div class="country">
+        <div class="btn-container">
+          <button class="back-btn">
+            <ion-icon name="arrow-back-outline"></ion-icon>Back
+          </button>
+          <img class="details--flag" src="https://flagcdn.com/w320/jp.png" />
+        </div>
+
+        <div class="country__details">
+          <img src="" alt="" />
+          <div class="country__details--container">
+            <h1>Japan</h1>
+            <div class="country__details--text">
+              <p><b>Native Name: </b><span class="native-name">Test</span></p>
+              <p><b>Population: </b><span class="population">Test</span></p>
+              <p><b>Region: </b><span class="region">Test</span></p>
+              <p><b>Sub Region: </b><span class="sub-region">Test</span></p>
+              <p><b>Capital: </b><span class="capital">Test</span></p>
+              <p><b>Top level Domain: </b><span class="domain">Test</span></p>
+              <p><b>Currencies: </b><span class="currencies">Test</span></p>
+              <p><b>Language: </b><span class="language">Test</span></p>
+            </div>
+
+            <div class="country__details--border">
+              <b class="neighbour-name">Border Countries: </b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
