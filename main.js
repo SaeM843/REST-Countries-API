@@ -1,5 +1,7 @@
 const url = " https://restcountries.com/v3.1/all";
 
+const countriesCards = document.querySelector(".search__results--cards");
+
 // const countryCard = countriesCards.children;
 // const cards = document.querySelector(".results--card");
 const select = document.querySelector(".search__regions");
@@ -14,9 +16,7 @@ let allCountriesData;
 const LoadAPI = function () {
   fetch(url)
     .then((res) => res.json())
-    .then((data) => {
-      data.forEach((data) => displayCountries(data));
-    });
+    .then((data) => displayCountries(data));
 };
 
 LoadAPI();
@@ -27,32 +27,46 @@ function numberWithCommas(x) {
 }
 
 //Display all countries
-const countriesCards = document.querySelector(".search__results--cards");
-
 function displayCountries(data) {
-  const newDiv = document.createElement("div");
-  newDiv.classList.add("results--card");
-  newDiv.innerHTML = `
-      <div class="flag-img">
-        <img src="${data.flags.svg}" />
-      </div>
+  countriesCards.innerHTML = "";
+  data.forEach((country) => {
+    const countryCard = document.createElement("a");
+    countryCard.classList.add("results--card");
+    countryCard.href = `/country.html?name=${country.name.common}`;
+    countryCard.innerHTML = `
+      <img src="${country.flags.svg}" alt="${country.name.common} flag" />
       <div class="country-info">
-      <span class="country-name">${data.name.common}</span>
-      <ul class="country-properies">
-        <li class="property-box">
-          Population: <span class="property">${numberWithCommas(
-            data.population
-          )}</span>
-        </li>
-        <li class="region property-box">
-          Region: <span class="property info-region">${data.region}</span>
-        </li>
-        <li class="property-box">
-          Capital: <span class="property">${data.capital}</span>
-        </li>
-      </ul>
-  `;
-  countriesCards.appendChild(newDiv);
+        <h3 class="card-title">${country.name.common}</h3>
+        <p><b>Population: </b>${country.population.toLocaleString()}</p>
+        <p><b>Region: </b>${country.region}</p>
+        <p><b>Capital: </b>${country.capital?.[0]}</p>
+      </div>
+    `;
+    countriesCards.append(countryCard);
+  });
+  // const newDiv = document.createElement("div");
+  // newDiv.classList.add("results--card");
+  // newDiv.innerHTML = `
+  //     <div class="flag-img">
+  //       <img src="${data.flags.svg}" />
+  //     </div>
+  //     <div class="country-info">
+  //     <span class="country-name">${data.name.common}</span>
+  //     <ul class="country-properies">
+  //       <li class="property-box">
+  //         Population: <span class="property">${numberWithCommas(
+  //           data.population
+  //         )}</span>
+  //       </li>
+  //       <li class="region property-box">
+  //         Region: <span class="property info-region">${data.region}</span>
+  //       </li>
+  //       <li class="property-box">
+  //         Capital: <span class="property">${data.capital}</span>
+  //       </li>
+  //     </ul>
+  // `;
+  // countriesCards.appendChild(newDiv);
 }
 
 //Display coutries by region
