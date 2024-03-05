@@ -3,6 +3,7 @@ const url = " https://restcountries.com/v3.1/all";
 const countriesCards = document.querySelector(".search__results--cards");
 const select = document.querySelector(".search__regions");
 const searchInput = document.querySelector("input");
+const infoOnCard = document.querySelector(".country-info");
 
 let allCountriesData;
 
@@ -104,8 +105,9 @@ btn.addEventListener("click", () => {
   header.classList.toggle("light");
   searchInput.classList.toggle("light");
   select.classList.toggle("light");
-  cards.classList.toggle("light");
-  searchSection.classList.toggle("light");
+  infoOnCard.classList.toggle("light");
+  // cards.classList.toggle("light");
+  // searchSection.classList.toggle("light");
 });
 
 // const region = document.getElementsByClassName("info-region");
