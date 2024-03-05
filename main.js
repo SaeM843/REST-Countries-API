@@ -1,14 +1,8 @@
 const url = " https://restcountries.com/v3.1/all";
 
 const countriesCards = document.querySelector(".search__results--cards");
-
-// const countryCard = countriesCards.children;
-// const cards = document.querySelector(".results--card");
 const select = document.querySelector(".search__regions");
-// const dropdownOptions = document.querySelectorAll(".option-box");
 const searchInput = document.querySelector("input");
-
-// const regionOnCard = document.querySelector(".region");
 
 let allCountriesData;
 
@@ -114,8 +108,8 @@ btn.addEventListener("click", () => {
   searchSection.classList.toggle("light");
 });
 
-const region = document.getElementsByClassName("info-region");
-const regionOnCard = document.querySelector(".region");
+// const region = document.getElementsByClassName("info-region");
+// const regionOnCard = document.querySelector(".region");
 // dropdownOptions.forEach((option) => option.addEventListener("change"));
 // dropdownOptions.forEach((option) =>
 //   option.addEventListener("change", (e) => {
