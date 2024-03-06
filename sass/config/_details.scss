@@ -44,8 +44,11 @@
       column-gap: 8rem;
     }
 
-    &--border {
-      margin-top: 3rem;
+    &--border neighbour-name a {
+      padding: 4px 16px;
+      box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      font-size: 14px;
     }
   }
 }

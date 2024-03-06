@@ -38,6 +38,8 @@ ul {
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   background-color: hsl(0, 0%, 98%);
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
@@ -230,8 +232,11 @@ a {
   row-gap: 1rem;
   column-gap: 8rem;
 }
-.country__details--border {
-  margin-top: 3rem;
+.country__details--border neighbour-name a {
+  padding: 4px 16px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=style.css.map */
