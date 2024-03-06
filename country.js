@@ -61,5 +61,5 @@ const btn = document.querySelector(".header__mode-switcher");
 
 btn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-  header.classList.toggle("light");
+  header.classList.toggle("dark");
 });
