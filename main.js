@@ -44,12 +44,6 @@ function displayCountries(data) {
   });
 }
 
-select.addEventListener("change", (e) => {
-  fetch(`https://restcountries.com/v3.1/${select.value}`)
-    .then((res) => res.json())
-    .then((data) => displayCountries(data));
-});
-
 //Display coutries by region
 // const byRegion = function () {
 //   fetch(`https://restcountries.com/v3.1/region/${select.value}`)
@@ -138,8 +132,13 @@ btn.addEventListener("click", () => {
 //   }
 // });
 select.addEventListener("change", (e) => {
-  console.log(select.value);
-  fetch(`https://restcountries.com/v3.1/region/${select.value}`)
-    .then((res) => res.json())
-    .then(displayCountries);
+  if (select.value == "placeholder") {
+    fetch(url)
+      .then((res) => res.json())
+      .then(displayCountries);
+  } else {
+    fetch(`https://restcountries.com/v3.1/region/${select.value}`)
+      .then((res) => res.json())
+      .then(displayCountries);
+  }
 });
