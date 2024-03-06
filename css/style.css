@@ -1,19 +1,271 @@
-/* Error: Undefined mixin.
- *    ,
- * 16 | /   @include responsive() {
- * 17 | |     padding: 1rem;
- * 18 | \   }
- *    '
- *   sass/config/_header.scss 16:3  @use
- *   sass/style.scss 5:1            root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 16 \2502  \250c    @include responsive() {\a 17 \2502  \2502      padding: 1rem;\a 18 \2502  \2514    }\a    \2575 \a   sass/config/_header.scss 16:3  @use\a   sass/style.scss 5:1            root stylesheet";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(0, 0%, 98%);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  color: hsl(200, 15%, 8%);
+}
+body.dark {
+  background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 4rem;
+  width: 100%;
+}
+.header.dark {
+  background-color: hsl(209, 23%, 22%);
+}
+@media screen and (max-width: 480px) {
+  .header {
+    padding: 1rem;
+  }
+}
+.header__heading {
+  font-size: 24px;
+  font-weight: 800;
+}
+@media screen and (max-width: 480px) {
+  .header__heading {
+    font-size: 12px;
+  }
+}
+.header__mode-switcher {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+@media screen and (max-width: 480px) {
+  .header__mode-switcher {
+    font-size: 12px;
+  }
+}
+.header__mode-switcher ion-icon {
+  padding: 0 0.5rem;
+}
+
+.search {
+  width: 90%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+.search__options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 480px) {
+  .search__options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.search__options form {
+  display: block;
+  position: relative;
+}
+@media screen and (max-width: 480px) {
+  .search__options form {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+.search__options form ion-icon {
+  position: absolute;
+  font-size: 20px;
+  top: 30%;
+  left: 4%;
+}
+.search__options form input {
+  display: block;
+  height: 50px;
+  width: 450px;
+  outline: none;
+  border: none;
+  padding: 0 3rem;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.search__options form input.dark {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+@media screen and (max-width: 480px) {
+  .search__options form input {
+    width: 100%;
+  }
+}
+.search__options form input::placeholder {
+  color: hsl(0, 0%, 100%);
+}
+.search__regions {
+  height: 50px;
+  width: 200px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 1rem;
+}
+.search__regions.dark {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+.search__results--cards {
+  max-width: 1200px;
+  margin-top: 30px;
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+.search__results--cards .results--card {
+  display: inline-block;
+  width: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.search__results--cards .results--card.dark {
+  background-color: hsl(209, 23%, 22%);
+}
+.search__results--cards .results--card img {
+  object-fit: cover;
+  width: 100%;
+  height: 50%;
+}
+.search__results--cards .results--card .country-info {
+  padding-inline: 16px;
+}
+.search__results--cards .results--card .country-info p {
+  margin-block: 8px;
+}
+.search__results--cards .results--card .country-info .card-title {
+  font-size: 24px;
+  margin-block: 16px;
+}
+
+.country {
+  margin: 3rem;
+}
+.country .back-btn {
+  all: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+.country__details {
+  display: flex;
+  align-items: center;
+  gap: 10rem;
+  margin-top: 4rem;
+}
+@media screen and (max-width: 1024px) {
+  .country__details {
+    gap: 5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .country__details {
+    flex-direction: column;
+  }
+}
+.country__details img {
+  width: 40%;
+  border-radius: 5px;
+}
+@media screen and (max-width: 480px) {
+  .country__details img {
+    width: auto;
+  }
+}
+.country__details h1 {
+  margin-bottom: 1.5rem;
+}
+.country__details--text {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 180px;
+  row-gap: 1rem;
+  column-gap: 8rem;
+}
+@media screen and (max-width: 1024px) {
+  .country__details--text {
+    column-gap: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .country__details--text {
+    row-gap: 1rem;
+    max-height: 300px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .country__details--border {
+    margin-top: 1rem;
+  }
+}
+.country__details--border.neighbour-name a {
+  padding: 4px 16px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -3,10 +3,10 @@
 
 .country {
   // width: 90%;
-  max-width: 1200px;
+  // max-width: 1200px;
   // padding: 0 3rem;
-  margin-inline: auto;
-  margin-top: 3rem;
+
+  margin: 3rem;
 
   .back-btn {
     all: unset;
@@ -25,10 +25,22 @@
     gap: 10rem;
     margin-top: 4rem;
 
+    @include mq(pc) {
+      gap: 5rem;
+    }
+
+    @include mq(sp) {
+      flex-direction: column;
+    }
+
     img {
       width: 40%;
       // border: 1rem solid var.$dark-mode-elements;
       border-radius: 5px;
+
+      @include mq(sp) {
+        width: auto;
+      }
     }
 
     h1 {
@@ -42,13 +54,28 @@
       max-height: 180px;
       row-gap: 1rem;
       column-gap: 8rem;
+
+      @include mq(pc) {
+        column-gap: 3rem;
+      }
+
+      @include mq(tab) {
+        row-gap: 1rem;
+        max-height: 300px;
+      }
     }
 
-    &--border neighbour-name a {
-      padding: 4px 16px;
-      box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-      font-size: 14px;
+    &--border {
+      @include mq(tab) {
+        margin-top: 1rem;
+      }
+
+      &.neighbour-name a {
+        padding: 4px 16px;
+        box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+        font-size: 14px;
+      }
     }
   }
 }
