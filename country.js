@@ -54,3 +54,12 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
       });
     }
   });
+
+// Theme Switcher
+const header = document.querySelector(".header");
+const btn = document.querySelector(".header__mode-switcher");
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  header.classList.toggle("light");
+});
