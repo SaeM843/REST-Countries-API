@@ -63,3 +63,10 @@ btn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   header.classList.toggle("dark");
 });
+
+const backBtn = document.querySelector(".back-btn");
+backBtn.addEventListener("click", goBack);
+
+function goBack() {
+  history.back();
+}
