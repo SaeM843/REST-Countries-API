@@ -103,8 +103,8 @@ const btn = document.querySelector(".header__mode-switcher");
 btn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   header.classList.toggle("light");
-  searchInput.classList.toggle("light");
-  select.classList.toggle("light");
+  searchInput.classList.toggle("dark");
+  select.classList.toggle("dark");
   infoOnCard.classList.toggle("light");
   countriesCards.classList.toggle("dark");
   // cards.classList.toggle("light");

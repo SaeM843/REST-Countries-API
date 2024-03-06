@@ -133,10 +133,17 @@ a {
   border-radius: 5px;
   font-size: 16px;
 }
+.search__options form input.dark {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
 @media screen and (max-width: 480px) {
   .search__options form input {
     width: 100%;
   }
+}
+.search__options form input::placeholder {
+  color: hsl(0, 0%, 100%);
 }
 .search__regions {
   height: 50px;
@@ -146,8 +153,9 @@ a {
   border-radius: 5px;
   padding: 0 1rem;
 }
-.search__regions .option-box {
-  height: 50px;
+.search__regions.dark {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
 }
 .search__results--cards {
   max-width: 1200px;
