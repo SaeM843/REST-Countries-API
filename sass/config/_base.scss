@@ -3,13 +3,18 @@
 body {
   //   width: 100vw;
   //   height: 100vh;
-  background-color: var.$dark-mode-background;
+  background-color: var.$light-mode-background;
   font-family: var.$main-font;
   font-size: 14px;
-  color: var.$dark-text-Light-el;
+  color: var.$light-mode-text;
 
-  &.light {
-    background-color: var.$light-mode-background;
-    color: var.$light-mode-text;
+  &.dark {
+    background-color: var.$dark-mode-background;
+    color: var.$dark-text-Light-el;
   }
+}
+
+a {
+  text-decoration-line: none;
+  color: inherit;
 }

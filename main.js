@@ -101,11 +101,12 @@ const header = document.querySelector(".header");
 const btn = document.querySelector(".header__mode-switcher");
 
 btn.addEventListener("click", () => {
-  document.body.classList.toggle("light");
+  document.body.classList.toggle("dark");
   header.classList.toggle("light");
   searchInput.classList.toggle("light");
   select.classList.toggle("light");
   infoOnCard.classList.toggle("light");
+  countriesCards.classList.toggle("dark");
   // cards.classList.toggle("light");
   // searchSection.classList.toggle("light");
 });
