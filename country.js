@@ -13,6 +13,10 @@ const currencies = document.querySelector(".currencies");
 const languages = document.querySelector(".language");
 
 const borderCountries = document.querySelector(".country__details--border");
+let label = borderCountries.querySelector(".label");
+const detailPage = document.querySelector(".country");
+const countryBtn = document.querySelector(".country-btn");
+const borderLabel = document.querySelector(".border-label");
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((res) => res.json())
@@ -46,14 +50,81 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     console.log(country.borders);
     if (country.borders) {
       country.borders.forEach((border) => {
-        console.log(border);
-        const borderCountryTags = document.createElement("a");
-        borderCountryTags.innerText = border;
-        borderCountryTags.href = `country.html?name=${country.name}`;
-        borderCountries.append(borderCountryTags);
+        fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+          .then((res) => res.json())
+          .then((data) => {
+            const borderCountryName = data[0].name.common;
+
+            label.innerHTML += `
+            <button class="country-btn" id="${border}" type="button">${borderCountryName}</button>`;
+          })
+          .catch((error) => {
+            console.error("Error fetching border country", error);
+          });
+
+        // console.log(border);
+        // const borderCountryTags = document.createElement("a");
+        // borderCountryTags.innerText = border;
+        // borderCountryTags.href = `country.html?name=${country.name.common}`;
+        // borderCountries.append(borderCountryTags);
       });
     }
   });
+
+detailPage.addEventListener("click", (e) => {
+  console.log(e.target);
+  if (e.target.classList.contains("country-btn")) {
+    label.innerHTML = "";
+    const borderId = e.target.id;
+    fetch(`https://restcountries.com/v3.1/alpha/${borderId}`)
+      .then((res) => res.json())
+      .then(([data]) => {
+        // const borderData = data[0];
+        // console.log(data[0]);
+        countryImg.src = data.flags.svg;
+        countryNameHeading.innerText = data.name.common;
+        population.innerText = data.population.toLocaleString("en-IN");
+        region.innerText = data.region;
+        domain.innerText = data.tld.join(", ");
+        capital.innerText = data.capital;
+        subRegion.innerText = data.subregion;
+
+        if (data.name.nativeName) {
+          nativeName.innerText = Object.values(data.name.nativeName)[0].common;
+        } else {
+          nativeName.innerText = data.name.common;
+        }
+
+        if (data.currencies) {
+          currencies.innerText = Object.values(data.currencies)
+            .map((currency) => currency.name)
+            .join(",");
+        }
+
+        if (data.languages) {
+          languages.innerText = Object.values(data.languages).join(", ");
+        }
+        // console.log(country);
+
+        console.log(data.borders);
+        if (data.borders) {
+          data.borders.forEach((border) => {
+            fetch(`https://restcountries.com/v3.1/alpha/${border}`)
+              .then((res) => res.json())
+              .then((data) => {
+                const borderCountryName = data[0].name.common;
+
+                label.innerHTML += `
+            <button class="country-btn" id="${border}" type="button">${borderCountryName}</button>`;
+              })
+              .catch((error) => {
+                console.error("Error fetching border country", error);
+              });
+          });
+        }
+      });
+  }
+});
 
 // Theme Switcher
 const header = document.querySelector(".header");
