@@ -82,7 +82,6 @@ const disableDarkMode = function () {
   header.classList.remove("dark");
   searchInput.classList.remove("dark");
   select.classList.remove("dark");
-
   localStorage.setItem("dark", "disabled");
 };
 if (darkMode === "enabled") {

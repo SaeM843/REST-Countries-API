@@ -41,6 +41,7 @@
         padding: 0 3rem;
         border-radius: 5px;
         font-size: 16px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
         &.dark {
           background-color: var.$dark-mode-elements;
@@ -52,7 +53,7 @@
         }
 
         &::placeholder {
-          color: var.$dark-text-Light-el;
+          color: var.$light-mode-text;
         }
       }
     }
@@ -89,6 +90,10 @@
     margin-inline: auto;
     justify-content: space-between;
 
+    @include mq(sp) {
+      justify-content: center;
+    }
+
     .results--card {
       display: inline-block;
       width: 250px;
@@ -96,7 +101,6 @@
       overflow: hidden;
       //padding-bottom: 24px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      //background-color: var.$dark-mode-elements;
       cursor: pointer;
 
       &.dark {
