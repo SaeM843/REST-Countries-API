@@ -18,17 +18,22 @@ const detailPage = document.querySelector(".country");
 const countryBtn = document.querySelector(".country-btn");
 const borderLabel = document.querySelector(".border-label");
 
+const displayDetailsPage = function (data) {
+  // const borderData = data[0];
+  // console.log(data[0]);
+  countryImg.src = `${data.flags.svg}`;
+  countryNameHeading.innerText = `${data.name.common}`;
+  population.innerText = `${data.population.toLocaleString("en-IN")}`;
+  region.innerText = `${data.region}`;
+  domain.innerText = `${data.tld.join(", ")}`;
+  capital.innerText = `${data.capital}`;
+  subRegion.innerText = `${data.subregion}`;
+};
+
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((res) => res.json())
   .then(([country]) => {
-    // console.log(country);
-    countryImg.src = country.flags.svg;
-    countryNameHeading.innerText = country.name.common;
-    population.innerText = country.population.toLocaleString("en-IN");
-    region.innerText = country.region;
-    domain.innerText = country.tld.join(", ");
-    capital.innerText = country.capital;
-    subRegion.innerText = country.subregion;
+    displayDetailsPage(country);
 
     if (country.name.nativeName) {
       nativeName.innerText = Object.values(country.name.nativeName)[0].common;
@@ -47,7 +52,6 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     }
     // console.log(country);
 
-    console.log(country.borders);
     if (country.borders) {
       country.borders.forEach((border) => {
         fetch(`https://restcountries.com/v3.1/alpha/${border}`)
@@ -61,12 +65,6 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
           .catch((error) => {
             console.error("Error fetching border country", error);
           });
-
-        // console.log(border);
-        // const borderCountryTags = document.createElement("a");
-        // borderCountryTags.innerText = border;
-        // borderCountryTags.href = `country.html?name=${country.name.common}`;
-        // borderCountries.append(borderCountryTags);
       });
     }
   });
@@ -79,15 +77,7 @@ detailPage.addEventListener("click", (e) => {
     fetch(`https://restcountries.com/v3.1/alpha/${borderId}`)
       .then((res) => res.json())
       .then(([data]) => {
-        // const borderData = data[0];
-        // console.log(data[0]);
-        countryImg.src = data.flags.svg;
-        countryNameHeading.innerText = data.name.common;
-        population.innerText = data.population.toLocaleString("en-IN");
-        region.innerText = data.region;
-        domain.innerText = data.tld.join(", ");
-        capital.innerText = data.capital;
-        subRegion.innerText = data.subregion;
+        displayDetailsPage(data);
 
         if (data.name.nativeName) {
           nativeName.innerText = Object.values(data.name.nativeName)[0].common;
@@ -106,7 +96,6 @@ detailPage.addEventListener("click", (e) => {
         }
         // console.log(country);
 
-        console.log(data.borders);
         if (data.borders) {
           data.borders.forEach((border) => {
             fetch(`https://restcountries.com/v3.1/alpha/${border}`)
@@ -129,12 +118,34 @@ detailPage.addEventListener("click", (e) => {
 // Theme Switcher
 const header = document.querySelector(".header");
 const btn = document.querySelector(".header__mode-switcher");
+let darkMode = localStorage.getItem("dark");
+
+const enableDarkMode = function () {
+  document.body.classList.add("dark");
+  header.classList.add("dark");
+  localStorage.setItem("dark", "enabled");
+};
+
+const disableDarkMode = function () {
+  document.body.classList.remove("dark");
+  header.classList.remove("dark");
+
+  localStorage.setItem("dark", "disabled");
+};
+if (darkMode === "enabled") {
+  enableDarkMode();
+}
 
 btn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  header.classList.toggle("dark");
+  darkMode = localStorage.getItem("dark");
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
 });
 
+//Back Button
 const backBtn = document.querySelector(".back-btn");
 backBtn.addEventListener("click", goBack);
 

@@ -44,31 +44,6 @@ function displayCountries(data) {
   });
 }
 
-//Display coutries by region
-// const byRegion = function () {
-//   fetch(`https://restcountries.com/v3.1/region/${select.value}`)
-//     .then((res) => res.json())
-//     .then((data) => displayCountries(data));
-// };
-
-// function byRegion() {
-//   const selectedRigion =
-//     select.options[select.selectedIndex].text.toLowerCase();
-//   console.log(selectedRigion);
-
-//   // const regions = document.getElementsByTagName("li");
-
-//   cards.forEach((card) => {
-//     if (regionOnCard.innerText.toLowerCase().indexOf(selectedRigion) != -1) {
-//       regionOnCard.parentElement.parentElement.style.display = "block";
-//     } else {
-//       regionOnCard.parentElement.parentElement.style.display = "none";
-//     }
-//   });
-// }
-
-//select.addEventListener("change", byRegion);
-
 // Country by serach input
 searchInput.addEventListener("input", (e) => {
   const filteredCountries = allCountriesData.filter((country) =>
@@ -76,61 +51,7 @@ searchInput.addEventListener("input", (e) => {
   );
   displayCountries(filteredCountries);
 });
-// const countryName = document.getElementsByClassName("country-name");
-// searchInput.addEventListener("input", (e) => {
-//   Array.from(countryName).forEach((country) => {
-//     if (
-//       country.innerText.toLowerCase().includes(searchInput.value.toLowerCase())
-//     ) {
-//       country.parentElement.parentElement.style.display = "block";
-//     } else {
-//       country.parentElement.parentElement.style.display = "none";
-//     }
-//   });
-// });
 
-//Theme Switch
-const searchSection = document.querySelector(".search");
-const header = document.querySelector(".header");
-const btn = document.querySelector(".header__mode-switcher");
-
-btn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  header.classList.toggle("dark");
-  searchInput.classList.toggle("dark");
-  select.classList.toggle("dark");
-  infoOnCard.classList.toggle("light");
-  countriesCards.classList.toggle("dark");
-  // cards.classList.toggle("light");
-  // searchSection.classList.toggle("light");
-});
-
-// const region = document.getElementsByClassName("info-region");
-// const regionOnCard = document.querySelector(".region");
-// dropdownOptions.forEach((option) => option.addEventListener("change"));
-// dropdownOptions.forEach((option) =>
-//   option.addEventListener("change", (e) => {
-//     console.log("hi");
-//     Array.from(region).forEach((reg) => {
-//       if (reg.innerText.includes(option.innerText)) {
-//         reg.parentElement.parentElement.style.display = "block";
-//       } else {
-//         reg.parentElement.parentElement.style.display = "none";
-//       }
-//     });
-//   })
-// );
-// select.addEventListener("change", () => {
-//   const op = select.options[select.selectedIndex];
-//   //console.log(op.value);
-//   if (region.innerText === op.value) {
-//     region.parentElement.parentElement.parentElement.parentElement.style.display =
-//       "block";
-//   } else {
-//     region.parentElement.parentElement.parentElement.parentElement.style.display =
-//       "none";
-//   }
-// });
 select.addEventListener("change", (e) => {
   if (select.value == "placeholder") {
     fetch(url)
@@ -140,5 +61,39 @@ select.addEventListener("change", (e) => {
     fetch(`https://restcountries.com/v3.1/region/${select.value}`)
       .then((res) => res.json())
       .then(displayCountries);
+  }
+});
+
+// Theme Switch
+const header = document.querySelector(".header");
+const btn = document.querySelector(".header__mode-switcher");
+let darkMode = localStorage.getItem("dark");
+
+const enableDarkMode = function () {
+  document.body.classList.add("dark");
+  header.classList.add("dark");
+  searchInput.classList.add("dark");
+  select.classList.add("dark");
+  localStorage.setItem("dark", "enabled");
+};
+
+const disableDarkMode = function () {
+  document.body.classList.remove("dark");
+  header.classList.remove("dark");
+  searchInput.classList.remove("dark");
+  select.classList.remove("dark");
+
+  localStorage.setItem("dark", "disabled");
+};
+if (darkMode === "enabled") {
+  enableDarkMode();
+}
+
+btn.addEventListener("click", () => {
+  darkMode = localStorage.getItem("dark");
+  if (darkMode !== "enabled") {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
   }
 });
