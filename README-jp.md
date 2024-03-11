@@ -2,7 +2,7 @@
 
 <p align="center">challenge from <a href="https://www.frontendmentor.io">Frontend Mentor</a></p>
 <h2 align="center"><a href="https://fm-rest-countries-api1.netlify.app/">🚀Live Site</a>||<a href="./README.md">README in English</h2></a>
-<p align="center">このアプリケーションは[REST Countries API](https://restcountries.com)から国の情報を表示し、好きな国を調べたりその国に関する詳しい情報を見ることができます。またカラーモードを変更することも可能です。</p>
+<p align="center">このアプリケーションは<a href="https://restcountries.com">REST Countries API</a>から国の情報を表示し、好きな国を調べたりその国に関する詳しい情報を見ることができます。またカラーモードを変更することも可能です。</p>
 
 ![Completed Rest Countries API](./design/screenshot.png)
 

@@ -2,7 +2,7 @@
 
 <p align="center">challenge from <a href="https://www.frontendmentor.io">Frontend Mentor</a></p>
 <h2 align="center"><a href="https://fm-rest-countries-api1.netlify.app/">🚀Live Site</a>||<a href="./README-jp.md">🇯🇵日本語のREADMEはこちら</h2></a>
-<p align="center">This web application lets you see and search for countries you would like to see from  [REST Countries API](https://restcountries.com)</p>
+<p align="center">This web application lets you see and search for countries you would like to see from  <a href="https://restcountries.com">REST Countries API</a></p>
 
 ![Completed Rest Countries API](./design/screenshot.png)
 
