@@ -1,17 +1,16 @@
-<h1 align="center">IP Address Tracker</h1>
+<h1 align="center">Rest Countries API with Color Theme Switcher</h1>
 
 <p align="center">challenge from <a href="https://www.frontendmentor.io">Frontend Mentor</a></p>
-<h2 align="center"><a href="https://saem843.github.io/IP-Address-Tracker/">🚀Live Site</a>||<a href="./README-jp.md">🇯🇵日本語のREADMEはこちら</h2></a>
-<p align="center">This web application lets you search for IP addresses, location, timezone and ISP, and provides you geolocation details with a map view.</p>
+<h2 align="center"><a href="https://fm-rest-countries-api1.netlify.app/">🚀Live Site</a>||<a href="./README-jp.md">🇯🇵日本語のREADMEはこちら</h2></a>
+<p align="center">This web application lets you see and search for countries you would like to see from  [REST Countries API](https://restcountries.com)</p>
 
-![Completed IP Address Tracker](./design/screenshot.png)
+![Completed Rest Countries API](./design/screenshot.png)
 
 ## 💡Key Features
 
 User should be able to:
 
 - See all countries from the API on the homepage
-- Search for any IP address and see key information on the map
 - Search for a country using an `input` field
 - Filter countries by region
 - Click on a country to see more detailed information on a separate page
